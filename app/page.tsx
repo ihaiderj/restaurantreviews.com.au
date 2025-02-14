@@ -25,6 +25,7 @@ export default function Home() {
                 <button className="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-colors border-2 border-primary">
                   <Link href="/features">Learn More</Link>
                 </button>
+                {/* TODO: Add a button to the waitlist */}
               </div>
             </div>
             <div className="relative">
