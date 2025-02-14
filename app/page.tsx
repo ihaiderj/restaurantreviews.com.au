@@ -1,6 +1,21 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Star, Search, MapPin, Camera, Clock, Shield, Users, Store, CalendarCheck, BarChart, UserPlus, Filter, Tag, Menu } from "lucide-react"
+import { 
+  ArrowRight, 
+  Star, 
+  Search, 
+  MapPin, 
+  Clock, 
+  Shield, 
+  Users, 
+  Store, 
+  CalendarCheck, 
+  BarChart, 
+  UserPlus, 
+  Filter, 
+  Tag, 
+  Menu 
+} from "lucide-react"
 
 export default function Home() {
   return (
