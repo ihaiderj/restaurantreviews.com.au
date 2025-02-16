@@ -97,11 +97,26 @@ export default function Header() {
             >
               FAQ
             </Link>
-            <Link 
-              href="/early-access" 
-              className={`bg-blue-50 text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-blue-100 transition-colors ${
-                isActive('/early-access') ? 'bg-blue-100' : ''
-              }`}
+            <Link
+              href="/early-access"
+              className="
+                px-6 py-2.5 
+                rounded-full 
+                font-semibold 
+                bg-gradient-to-r from-blue-600 to-blue-700 
+                hover:from-blue-700 hover:to-blue-800
+                dark:from-blue-500 dark:to-blue-600
+                dark:hover:from-blue-600 dark:hover:to-blue-700
+                text-white 
+                shadow-md
+                hover:shadow-lg
+                transform hover:scale-[1.02]
+                transition-all 
+                duration-200
+                border border-transparent
+                hover:border-blue-200
+                dark:hover:border-blue-400/20
+              "
             >
               Get Early Access
             </Link>
