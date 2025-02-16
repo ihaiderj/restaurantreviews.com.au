@@ -99,7 +99,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold dark:text-white transition-colors">Contact</h3>
             <p className="text-gray-600 dark:text-gray-400 transition-colors">
-              support@restaurantreviewsa.com
+              support@restaurantreviews.com.au
             </p>
           </div>
         </div>

@@ -75,7 +75,7 @@ export default function Footer() {
                   className="text-gray-600 hover:text-primary transition-colors flex items-center gap-2"
                 >
                   <Mail className="w-4 h-4" />
-                  support@restaurantreviewsapp.com
+                  support@restaurantreviews.com.au
                 </a>
               </li>
             </ul>
