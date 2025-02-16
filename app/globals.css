@@ -3,20 +3,44 @@
 @tailwind utilities;
 
 :root {
-  --background: 226 100% 98%;
-  --foreground: 224 71.4% 4.1%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --muted: 220 14.3% 95.9%;
-  --muted-foreground: 220 8.9% 46.1%;
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 26, 26, 26;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Add transition classes */
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Update gradient for dark mode */
+.hero-gradient {
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(226, 232, 255, 0.7) 0%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.dark .hero-gradient {
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(37, 47, 82, 0.7) 0%, 
+    rgba(26, 26, 26, 0) 100%
+  );
 }
 
 .gradient-bg {
   background: linear-gradient(165deg, rgb(226 232 255) 0%, rgb(255 255 255) 100%);
-}
-
-.hero-gradient {
-  background: radial-gradient(circle at 50% 50%, rgba(226, 232, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .feature-card {

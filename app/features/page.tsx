@@ -9,15 +9,17 @@ export default function FeaturesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-white py-20">
+      <section className="py-20 dark:bg-dark-primary transition-colors">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
-            Powerful Features for Everyone
-          </h1>
-          <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto">
-            Whether you're a food lover discovering new places or a restaurant owner connecting with customers, 
-            Restaurant Reviews has everything you need.
-          </p>
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white transition-colors">
+              Powerful Features for Everyone
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-400 transition-colors">
+              Whether you're a food lover discovering new places or a restaurant owner connecting with customers, 
+              Restaurant Reviews has everything you need.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -63,53 +65,70 @@ export default function FeaturesPage() {
           </div>
 
           {/* Discovery Features */}
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {[
-              {
-                icon: MapPin,
-                title: "Find Nearby Restaurants",
-                description: "Discover great dining spots around you with real-time location-based recommendations",
-                features: [
-                  "Access your current location",
-                  "View restaurants within your area",
-                  "Interactive map integration",
-                  "Distance-based sorting"
-                ]
-              },
-              {
-                icon: Filter,
-                title: "Smart Filters",
-                description: "Find exactly what you're craving with our comprehensive filtering system",
-                features: [
-                  "International Cuisine",
-                  "Dining Styles (Casual, Fine Dining)",
-                  "Special Categories (Healthy, Child Friendly)",
-                  "Today's Special offers"
-                ]
-              },
-              {
-                icon: Search,
-                title: "Easy Search",
-                description: "Quick and efficient search to find your perfect dining spot",
-                features: [
-                  "Search by restaurant name",
-                  "Search by cuisine type",
-                  "Search by location",
-                  "Search by special requirements"
-                ]
-              }
-            ].map((feature, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-lg">
-                <feature.icon className="w-8 h-8 text-blue-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-gray-600 mb-4">{feature.description}</p>
-                <ul className="list-disc list-inside text-gray-600 space-y-2">
-                  {feature.features.map((item, j) => (
-                    <li key={j}>{item}</li>
-                  ))}
-                </ul>
+          <div className="grid md:grid-cols-2 gap-12 mb-20">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <MapPin className="w-6 h-6 text-blue-600 dark:text-blue-400 mt-1 transition-colors" />
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 dark:text-white transition-colors">
+                    Find Nearby Restaurants
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
+                    Discover great dining spots around you with real-time location-based recommendations
+                  </p>
+                  <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 transition-colors">
+                    <li>Access your current location</li>
+                    <li>View restaurants within your area</li>
+                    <li>Interactive map integration</li>
+                    <li>Distance-based sorting</li>
+                  </ul>
+                </div>
               </div>
-            ))}
+
+              <div className="flex items-start gap-4">
+                <Filter className="w-6 h-6 text-blue-600 dark:text-blue-400 mt-1 transition-colors" />
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 dark:text-white transition-colors">
+                    Smart Filters
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
+                    Find exactly what you're craving with our comprehensive filtering system
+                  </p>
+                  <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 transition-colors">
+                    <li>International Cuisine</li>
+                    <li>Dining Styles (Casual, Fine Dining)</li>
+                    <li>Special Categories (Healthy, Child Friendly)</li>
+                    <li>Today's Special offers</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <Search className="w-6 h-6 text-blue-600 dark:text-blue-400 mt-1 transition-colors" />
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 dark:text-white transition-colors">
+                    Easy Search
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
+                    Quick and efficient search to find your perfect dining spot
+                  </p>
+                  <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 transition-colors">
+                    <li>Search by restaurant name</li>
+                    <li>Search by cuisine type</li>
+                    <li>Search by location</li>
+                    <li>Search by special requirements</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2960&auto=format&fit=crop"
+                alt="Restaurant discovery interface showing map and filters"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
 
           {/* Restaurant Experience */}
@@ -153,57 +172,90 @@ export default function FeaturesPage() {
       </section>
 
       {/* Restaurant Owner Features */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-dark-secondary transition-colors">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16">For Restaurant Owners</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Store,
-                title: "Restaurant Management",
-                description: "Complete control over your restaurant's digital presence",
-                features: [
-                  "Create and update restaurant profile",
-                  "Manage menu items and prices",
-                  "Set special offers and promotions",
-                  "Update operating hours"
-                ]
-              },
-              {
-                icon: CalendarCheck,
-                title: "Reservation System",
-                description: "Efficient table reservation management",
-                features: [
-                  "Accept online reservations",
-                  "Manage booking calendar",
-                  "Set table availability",
-                  "Send confirmation notifications"
-                ]
-              },
-              {
-                icon: BarChart,
-                title: "Analytics & Insights",
-                description: "Track your restaurant's performance",
-                features: [
-                  "View customer ratings and reviews",
-                  "Track reservation statistics",
-                  "Monitor popular dishes",
-                  "Analyze customer preferences"
-                ]
-              }
-            ].map((feature, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-lg">
-                <feature.icon className="w-8 h-8 text-blue-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-gray-600 mb-4">{feature.description}</p>
-                <ul className="list-disc list-inside text-gray-600 space-y-2">
-                  {feature.features.map((item, j) => (
-                    <li key={j}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <h2 className="text-3xl font-bold text-center mb-16 dark:text-white transition-colors">
+            For Restaurant Owners
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {/* Restaurant Management */}
+            <div className="bg-white dark:bg-dark-primary rounded-xl p-6 shadow-lg transition-colors">
+              <Store className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-4 transition-colors" />
+              <h3 className="text-xl font-semibold mb-3 dark:text-white transition-colors">
+                Restaurant Management
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
+                Complete control over your restaurant's digital presence
+              </p>
+              <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 transition-colors">
+                <li>Create and update restaurant profile</li>
+                <li>Manage menu items and prices</li>
+                <li>Set special offers and promotions</li>
+                <li>Update operating hours</li>
+              </ul>
+            </div>
+
+            {/* Reservation System */}
+            <div className="bg-white dark:bg-dark-primary rounded-xl p-6 shadow-lg transition-colors">
+              <CalendarCheck className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-4 transition-colors" />
+              <h3 className="text-xl font-semibold mb-3 dark:text-white transition-colors">
+                Reservation System
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
+                Efficient table reservation management
+              </p>
+              <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 transition-colors">
+                <li>Accept online reservations</li>
+                <li>Manage booking calendar</li>
+                <li>Set table availability</li>
+                <li>Send confirmation notifications</li>
+              </ul>
+            </div>
+
+            {/* Analytics & Insights */}
+            <div className="bg-white dark:bg-dark-primary rounded-xl p-6 shadow-lg transition-colors">
+              <BarChart className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-4 transition-colors" />
+              <h3 className="text-xl font-semibold mb-3 dark:text-white transition-colors">
+                Analytics & Insights
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
+                Track your restaurant's performance
+              </p>
+              <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 transition-colors">
+                <li>View customer ratings and reviews</li>
+                <li>Track reservation statistics</li>
+                <li>Monitor popular dishes</li>
+                <li>Analyze customer preferences</li>
+              </ul>
+            </div>
           </div>
+
+          {/* Restaurant Categories */}
+          {/* <div className="mt-20">
+            <h3 className="text-2xl font-semibold text-center mb-12 dark:text-white transition-colors">
+              Restaurant Categories
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
+              {[
+                "International Cuisine",
+                "Casual Dining",
+                "Fast Food",
+                "Fine Dining",
+                "Healthy Food",
+                "Cakes & Coffee",
+                "Child Friendly",
+                "More Options"
+              ].map((category, i) => (
+                <div 
+                  key={i}
+                  className="bg-white dark:bg-dark-primary px-4 py-3 rounded-lg text-center shadow-md hover:shadow-lg transition-all dark:text-gray-300 dark:hover:text-white"
+                >
+                  {category}
+                </div>
+              ))}
+            </div>
+          </div> */}
         </div>
       </section>
 
@@ -211,7 +263,7 @@ export default function FeaturesPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">Restaurant Categories</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 bg-white dark:bg-dark-secondary rounded-xl p-6 shadow-lg transition-colors">
             {[
               { icon: Globe, label: "International Cuisine" },
               { icon: Utensils, label: "Casual Dining" },
@@ -222,7 +274,7 @@ export default function FeaturesPage() {
               { icon: Baby, label: "Child Friendly" },
               { icon: Settings, label: "More Options" }
             ].map((category, i) => (
-              <div key={i} className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-md">
+              <div key={i} className="flex items-center gap-3 p-4 bg-white dark:bg-dark-primary rounded-lg shadow-md">
                 <category.icon className="w-6 h-6 text-blue-600" />
                 <span className="font-medium">{category.label}</span>
               </div>
