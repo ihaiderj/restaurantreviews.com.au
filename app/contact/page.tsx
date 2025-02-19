@@ -136,7 +136,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
+              {/* <div className="flex items-start gap-4">
                 <Phone className="w-6 h-6 text-blue-600 dark:text-blue-400 mt-1 transition-colors" />
                 <div>
                   <h3 className="font-semibold mb-1 dark:text-white transition-colors">Call Us</h3>
@@ -152,7 +152,7 @@ export default function Contact() {
                     Gold Coast, Australia
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

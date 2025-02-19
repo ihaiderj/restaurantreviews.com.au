@@ -1,9 +1,23 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
+// Add at the top of the file
+function isValidEmail(email: string) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 export async function POST(request: Request) {
   try {
     const { email } = await request.json()
+
+    // Validate email
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email address' }, 
+        { status: 400 }
+      )
+    }
 
     // Create transporter
     const transporter = nodemailer.createTransport({
@@ -50,7 +64,9 @@ export async function POST(request: Request) {
     // Email to admin
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: 'valuesinfotech@gmail.com',
+      to: 'support@restaurantreviews.com.au',
+      cc: process.env.CC_EMAIL,
+      bcc: process.env.BCC_EMAIL,
       subject: 'New Waitlist Signup - Restaurant Reviews App',
       html: `
         ${emailStyles}

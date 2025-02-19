@@ -7,83 +7,90 @@ export default function TermsAndConditions() {
             Terms and Conditions
           </h1>
           
-          <div className="prose dark:prose-invert max-w-none">
-            <p className="text-gray-600 dark:text-gray-400 mb-8 transition-colors">
-              Last updated: March 15, 2024
-            </p>
+          <div className="prose dark:prose-invert max-w-none space-y-8">
+            {/* Introduction */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">1. Introduction</h2>
+              <p className="text-gray-600 dark:text-gray-400 transition-colors">
+                Welcome to www.restaurantreviews.com.au (the "Website"), operated by Restaurant Review Pty. Ltd. 
+                (ACN 612 034 447) ("we," "us," or "our"). By accessing or using the Website, you agree to be bound 
+                by these Terms and Conditions ("Terms"). If you do not agree with these Terms, please do not use the Website.
+              </p>
+            </section>
 
-            <div className="space-y-8">
-              <section>
-                <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">1. Agreement to Terms</h2>
-                <p className="text-gray-600 dark:text-gray-400 transition-colors">
-                  By accessing or using Restaurant Reviews, you agree to be bound by these Terms and Conditions. If you disagree with any part of these terms, you may not access the service.
-                </p>
-              </section>
+            {/* Use of the Website */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">2. Use of the Website</h2>
+              <ul className="list-disc pl-6 space-y-4 text-gray-600 dark:text-gray-400 transition-colors">
+                <li>You must be at least 18 years of age to use the Website.</li>
+                <li>
+                  You agree to use the Website for lawful purposes only. You may not use the Website:
+                  <ul className="list-circle pl-6 mt-2 space-y-2">
+                    <li>To post or transmit any content that is unlawful, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, libelous, invasive of another's privacy, hateful, or racially, ethnically or otherwise objectionable.</li>
+                    <li>To impersonate any person or entity, or falsely state or otherwise misrepresent your affiliation with a person or entity.</li>
+                    <li>To interfere with or disrupt the operation of the Website or the servers or networks connected to the Website.</li>
+                    <li>To violate any applicable local, state, national or international law.</li>
+                  </ul>
+                </li>
+                <li>You are solely responsible for the content of your reviews and other submissions to the Website.</li>
+              </ul>
+            </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">2. User Accounts</h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
-                  When you create an account with us, you must provide accurate, complete, and current information. You are responsible for safeguarding the password and for all activities that occur under your account.
-                </p>
-                <p className="text-gray-600 dark:text-gray-400 transition-colors">
-                  You agree to notify us immediately of any unauthorized use of your account or any other breach of security.
-                </p>
-              </section>
+            {/* Restaurant Reviews */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">3. Restaurant Reviews</h2>
+              <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-400 transition-colors">
+                <li>Reviews must be based on genuine experiences.</li>
+                <li>You agree not to submit false, misleading, or defamatory reviews.</li>
+                <li>We reserve the right to remove or edit any review that we deem to be inappropriate or in violation of these Terms.</li>
+                <li>You grant us a non-exclusive, royalty-free, perpetual, irrevocable license to use, reproduce, modify, and distribute your reviews in any format.</li>
+              </ul>
+            </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">3. User Reviews and Content</h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
-                  By posting reviews or content on Restaurant Reviews, you:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-400 transition-colors">
-                  <li>Confirm that you are the owner of the content or have the right to share it</li>
-                  <li>Grant us a non-exclusive right to use, modify, and display the content</li>
-                  <li>Agree to post honest, accurate, and non-discriminatory reviews</li>
-                  <li>Understand that false or misleading reviews may be removed</li>
-                </ul>
-              </section>
+            {/* Intellectual Property */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">4. Intellectual Property</h2>
+              <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-400 transition-colors">
+                <li>The content of the Website, including but not limited to text, graphics, logos, images, and software, is the property of Restaurant Review Pty. Ltd. and is protected by copyright and other intellectual property laws.</li>
+                <li>You may not reproduce, modify, or distribute any content from the Website without our prior written consent.</li>
+              </ul>
+            </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">4. Restaurant Listings</h2>
-                <p className="text-gray-600 dark:text-gray-400 transition-colors">
-                  Restaurant owners are responsible for maintaining accurate information about their establishments, including menus, prices, and operating hours. We reserve the right to remove or modify listings that violate our policies.
-                </p>
-              </section>
+            {/* Disclaimer */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">5. Disclaimer</h2>
+              <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-400 transition-colors">
+                <li>We make no warranties, express or implied, about the accuracy, completeness, reliability, or suitability of the information on the Website.</li>
+                <li>We are not liable for any loss or damage arising from your use of the Website.</li>
+                <li>Restaurant Review Pty. Ltd. does not endorse or guarantee the quality of any restaurant reviewed on the Website.</li>
+              </ul>
+            </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">5. Reservations and Bookings</h2>
-                <p className="text-gray-600 dark:text-gray-400 transition-colors">
-                  While we facilitate restaurant reservations, the final agreement is between you and the restaurant. Cancellation policies are set by individual restaurants and should be reviewed before confirming a booking.
-                </p>
-              </section>
+            {/* Indemnification */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">6. Indemnification</h2>
+              <p className="text-gray-600 dark:text-gray-400 transition-colors">
+                You agree to indemnify and hold us harmless from any claims, damages, or expenses (including legal fees) 
+                arising from your use of the Website or your breach of these Terms.
+              </p>
+            </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">6. Privacy and Data</h2>
-                <p className="text-gray-600 dark:text-gray-400 transition-colors">
-                  Your use of Restaurant Reviews is also governed by our Privacy Policy. By using our service, you consent to our collection and use of data as outlined in the Privacy Policy.
-                </p>
-              </section>
+            {/* Governing Law */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">7. Governing Law</h2>
+              <p className="text-gray-600 dark:text-gray-400 transition-colors">
+                These Terms will be governed by and construed in accordance with the laws of Queensland, Australia.
+              </p>
+            </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">7. Modifications</h2>
-                <p className="text-gray-600 dark:text-gray-400 transition-colors">
-                  We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice before the changes take effect.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">8. Contact Us</h2>
-                <p className="text-gray-600 dark:text-gray-400 transition-colors">
-                  If you have any questions about these Terms, please contact us at{' '}
-                  <a 
-                    href="mailto:support@restaurantreviews.com.au" 
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
-                  >
-                    support@restaurantreviews.com.au
-                  </a>
-                </p>
-              </section>
-            </div>
+            {/* Changes to Terms */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 dark:text-white transition-colors">8. Changes to Terms</h2>
+              <p className="text-gray-600 dark:text-gray-400 transition-colors">
+                We reserve the right to modify these Terms at any time. Your continued use of the Website following any 
+                changes constitutes acceptance of those changes.
+              </p>
+            </section>
           </div>
         </div>
       </div>

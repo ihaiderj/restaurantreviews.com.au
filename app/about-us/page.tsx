@@ -1,17 +1,60 @@
+'use client'
 import Image from 'next/image'
 import { MapPin, Mail, Phone } from 'lucide-react'
+import { useState } from 'react'
 
 export default function AboutUs() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('submitting')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch (error) {
+      setStatus('error')
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }))
+  }
+
   return (
     <div className="min-h-screen py-20 dark:bg-dark-primary transition-colors">
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white transition-colors">
-            About Restaurant Reviews
+          Restaurant Reviews 
           </h1>
+          <h4 className="text-xl text-gray-600 dark:text-gray-400 transition-colors">
+          Your Premier Destination for Dining Discovery 
+          </h4>
           <p className="text-xl text-gray-600 dark:text-gray-400 transition-colors">
-            Connecting food lovers with great restaurants since 2024
+          Connecting food lovers with exceptional restaurants. 
           </p>
         </div>
 
@@ -29,17 +72,16 @@ export default function AboutUs() {
             <h2 className="text-3xl font-bold mb-6 dark:text-white transition-colors">Our Story</h2>
             <div className="space-y-4 text-gray-600 dark:text-gray-400 transition-colors">
               <p>
-                Founded by Richard White in 2024, Restaurant Reviews emerged from a simple yet powerful idea: 
-                to create a platform that makes discovering great dining experiences easier and more reliable.
+              Restaurant Reviews was born from a clear and ambitious vision: to establish the leading platform that 
+              simplifies and enhances the way people find and enjoy outstanding dining experiences.
+
               </p>
               <p>
-                Based in the vibrant culinary scene of Gold Coast, Australia, we&apos;ve witnessed firsthand how 
-                technology can transform the way people discover and experience restaurants.
+              Originating from the dynamic food scene of the Gold Coast, Australia, we've seen firsthand the transformative power of technology in connecting diners and restaurants. From our local beginnings, we've evolved into a comprehensive platform 
+              designed to benefit both passionate food enthusiasts and restaurant businesses alike.
               </p>
               <p>
-                What started as a local project has grown into a comprehensive platform that serves both 
-                food enthusiasts and restaurant owners, creating a community built on authentic reviews 
-                and shared experiences.
+              We are dedicated to nurturing a community founded on genuine reviews and shared culinary journeys. 
               </p>
             </div>
           </div>
@@ -51,23 +93,26 @@ export default function AboutUs() {
             <div>
               <h2 className="text-2xl font-bold mb-4 dark:text-white transition-colors">Our Mission</h2>
               <p className="text-gray-600 dark:text-gray-400 transition-colors">
-                To empower diners with honest, reliable information and tools to discover their next 
-                favorite restaurant, while helping restaurant owners thrive through increased visibility 
-                and valuable customer insights.
+              Our mission is twofold: to empower diners with trustworthy, reliable information and user-friendly tools 
+              for discovering their next favourite dining spot, and to provide restaurants with an exceptional 
+              platform to boost their visibility, attract new customers, and cultivate a large and devoted customer
+               base. We strive to be the go-to resource for diners seeking the perfect meal and for restaurants 
+               aiming to expand their reach and thrive in a competitive market. 
               </p>
             </div>
             <div>
               <h2 className="text-2xl font-bold mb-4 dark:text-white transition-colors">Our Vision</h2>
               <p className="text-gray-600 dark:text-gray-400 transition-colors">
-                To become the most trusted platform for restaurant discovery and reviews, fostering 
-                a global community of food lovers and supporting the success of restaurants worldwide.
+              We envision Restaurant Reviews as the most trusted and respected platform for restaurant 
+              discovery and reviews worldwide. We are committed to fostering a global community of food lovers 
+              and to championing the ongoing success and growth of restaurants everywhere. 
               </p>
             </div>
           </div>
         </div>
 
         {/* Values Section */}
-        <div className="max-w-6xl mx-auto mb-20">
+        {/* <div className="max-w-6xl mx-auto mb-20">
           <h2 className="text-3xl font-bold text-center mb-12 dark:text-white transition-colors">Our Values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
@@ -102,30 +147,95 @@ export default function AboutUs() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
-        {/* Contact Information */}
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 dark:text-white transition-colors">Get in Touch</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center">
-              <MapPin className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-4 transition-colors" />
-              <h3 className="text-lg font-semibold mb-2 dark:text-white transition-colors">Visit Us</h3>
-              <p className="text-gray-600 dark:text-gray-400 transition-colors">Gold Coast, Australia</p>
+        {/* Contact Section */}
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 dark:text-white transition-colors">Get in Touch</h2>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Contact Form */}
+            <div className="bg-white dark:bg-dark-secondary rounded-xl p-6 shadow-lg transition-colors">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 dark:text-white transition-colors">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-dark-primary dark:text-white focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 dark:text-white transition-colors">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-dark-primary dark:text-white focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 dark:text-white transition-colors">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={4}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-dark-primary dark:text-white focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
+                >
+                  {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                </button>
+
+                {status === 'success' && (
+                  <p className="text-green-600 dark:text-green-400 text-center">
+                    Thank you for your message. We'll get back to you soon!
+                  </p>
+                )}
+
+                {status === 'error' && (
+                  <p className="text-red-600 dark:text-red-400 text-center">
+                    Something went wrong. Please try again or email us directly.
+                  </p>
+                )}
+              </form>
             </div>
-            <div className="flex flex-col items-center">
-              <Mail className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-4 transition-colors" />
-              <h3 className="text-lg font-semibold mb-2 dark:text-white transition-colors">Email Us</h3>
-              <a href="mailto:contact@restaurantreviews.com" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors">
-                contact@restaurantreviews.com
-              </a>
-            </div>
-            <div className="flex flex-col items-center">
-              <Phone className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-4 transition-colors" />
-              <h3 className="text-lg font-semibold mb-2 dark:text-white transition-colors">Call Us</h3>
-              <a href="tel:+61755555555" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors">
-                +61 7 5555 5555
-              </a>
+
+            {/* Contact Information */}
+            <div className="bg-white dark:bg-dark-secondary rounded-xl p-6 shadow-lg transition-colors">
+              <div className="flex flex-col items-center text-center">
+                <Mail className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4 transition-colors" />
+                <h3 className="text-xl font-semibold mb-4 dark:text-white transition-colors">Email Us</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors">
+                  You can also reach us directly at:
+                </p>
+                <a 
+                  href="mailto:support@restaurantreviews.com.au"
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-500 text-lg font-medium transition-colors"
+                >
+                  support@restaurantreviews.com.au
+                </a>
+              </div>
             </div>
           </div>
         </div>
